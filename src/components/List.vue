@@ -13,8 +13,7 @@
 		      <router-link :to="{name:'content',params:{id:item.news_id}}" class="link" tag="a">更多</router-link>
 		    </div>	   
 		</div>-->
-		
-		
+
 		<div class="card demo-card-header-pic" id="card" v-for="item in news">
 		    <div valign="bottom" class="card-header color-white no-border no-padding">
 		      <img class='card-cover' :src="item.text_image0" alt="">
@@ -29,6 +28,9 @@
 		      <a href="#" class="link">赞</a>
 		       <router-link :to="{name:'content',params:{id:item.news_id}}" class="link" tag="a">更多</router-link>
 		    </div>
+		</div>
+		<div class="more" @click="more">
+			点击加载更多
 		</div>
 	</div>
 </template>
@@ -46,8 +48,10 @@
 						edit_time:0,
 						digest:'',
 						news_id:''
+						
 					}
-				]
+				],
+				pages:1
 			}
 		},
 		created:function(){
@@ -62,6 +66,26 @@
 			},function(msg){
 				console.log(msg);
 			})
+		},
+		methods:{
+			
+			more:function(){
+				console.log(this.pages);
+				this.pages++;
+				var that=this;
+				this.$http.jsonp("http://api.dagoogle.cn/news/get-news",{
+					params:{
+						page:this.pages,
+						tableNum:1,
+						justList:1
+					}
+				}).then(function(res){
+					console.log(this.pages);
+					this.news=(this.news).concat(res.body.data);
+				},function(msg){
+					
+				})
+			}
 		}
 		
 	}
