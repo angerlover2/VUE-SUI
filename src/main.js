@@ -11,6 +11,7 @@ import Form from './components/Form'
 import Content from './components/Content'
 
 
+
 //自定义时间过滤器
 Vue.filter('datestyle',function(value){
 	var oDate=new Date(value);
@@ -33,8 +34,6 @@ Vue.use(VueRouter);
 Vue.use(VueResource);
 Vue.use(VueValidator);
 
-
-
 var router = new VueRouter({
 	mode:"history",
 	saveScrollPosition:true,  //在启用html5 history模式的时候生效，用于后退操作的时候记住之前的滚动条位置
@@ -49,7 +48,7 @@ var router = new VueRouter({
 		name:"Tab",
 		component:Tab
 	},{
-		path:"/slider/",
+		path:"/slider/:id",
 		name:"slider",
 		component:Slider
 	},{
