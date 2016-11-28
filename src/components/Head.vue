@@ -1,7 +1,7 @@
 <template>
 	
 		<header class="bar bar-nav" id="head">
-			<a class="icon icon-left pull-left"></a>
+			<a class="icon icon-left pull-left" @click='backHistory'></a>
 		  	<h1 class="title">{{tittle}}</h1>
 		  	<a class="icon icon-search pull-right open-popup"></a>
 		</header>
@@ -17,6 +17,11 @@
 		data(){
 			return {
 				tittle:this.tittle
+			}
+		},
+		methods:{
+			backHistory:function(){
+				this.$router.go(-1);
 			}
 		}
 		

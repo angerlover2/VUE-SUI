@@ -1,5 +1,5 @@
 <template>
-	<div >
+	<div id="card">
 		<!--<div id="card" class="card" v-for="item in news">
 			<div :style="{background:'url('+ item.text_image0 +')'}" valign="bottom" class="card-header color-white no-border">{{ item.title }}</div>
 		    <div class="card-content">
@@ -14,7 +14,7 @@
 		    </div>	   
 		</div>-->
 
-		<div class="card demo-card-header-pic" id="card" v-for="item in news">
+		<div class="card demo-card-header-pic"  v-for="item in news">
 		    <div valign="bottom" class="card-header color-white no-border no-padding">
 		      <img class='card-cover' :src="item.text_image0" alt="">
 		    </div>
@@ -26,7 +26,7 @@
 		    </div>
 		    <div class="card-footer">
 		      <a href="#" class="link">赞</a>
-		       <router-link :to="{name:'content',params:{id:item.news_id}}" class="link" tag="a">更多</router-link>
+		       <router-link :to="{ name:'content',params:{id:item.news_id}}" class="link" tag="a">更多</router-link>
 		    </div>
 		</div>
 		<div class="more" @click="more">
