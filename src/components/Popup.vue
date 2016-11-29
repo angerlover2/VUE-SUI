@@ -27,7 +27,7 @@
 		methods:{
 			search:function(e){
 				if(e.keyCode==38 || e.keyCode==40) return;
-				this.$http.jsonp("http://sug.so.360.cn/suggest?",{
+				this.$http.jsonp("https://sug.so.360.cn/suggest?",{
 					params:{
 						word:this.wd,
 						encodein:'utf-8',
