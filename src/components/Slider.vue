@@ -13,7 +13,7 @@
 
 <script type="text/javascript">
 	
-	import Swiper from 'assets/js/sm-extend';
+	
 	var slide1;
 	export default{
 		data(){

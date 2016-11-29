@@ -48,7 +48,7 @@ var router = new VueRouter({
 		name:"Tab",
 		component:Tab
 	},{
-		path:"/slider/:id",
+		path:"/slider",
 		name:"slider",
 		component:Slider
 	},{
