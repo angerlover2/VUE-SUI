@@ -14,7 +14,8 @@
     "vue-resource": "^1.0.3",
     "vue-router": "^2.0.1",
     "vue-swipe": "^2.0.0",
-    "vue-validator": "^3.0.0-alpha.1"
+    "vue-validator": "^3.0.0-alpha.1",
+    "zepto": "^1.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
