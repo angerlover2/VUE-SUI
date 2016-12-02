@@ -26,7 +26,7 @@
 		  </router-link>
 		  <router-link to="/tab" class="tab-item external"active-class="active">
 		  	<span class="icon icon-cart"></span>
-		    <span class="tab-label">关于我们</span>
+		    <span class="tab-label">美图</span>
 		  </router-link>
 		  <router-link to="/setting" class="tab-item external"active-class="active">
 		  	<span class="icon icon-settings"></span>
