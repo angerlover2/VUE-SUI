@@ -34,24 +34,25 @@
 		  </router-link>
 	</nav>
 	<popup></popup>
-	    
+	    <panel></panel>
   </div>
   
 </template>
 
 <script>
 
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+
 import Conten from './components/Content'
 import headtop from './components/Head'
 import Foot from './components/Foot'
 import Popup from './components/Popup'
 import Forms from './components/Form'
+import Panel from "./components/Panel"
+
 export default {
 name: 'app',
 components: {
-    Conten,headtop,Foot,Popup,Forms
+    Conten,headtop,Foot,Popup,Forms,Panel
 }
 
 }

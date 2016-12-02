@@ -9,6 +9,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "mockjs": "^1.0.1-beta3",
     "vue": "^2.0.1",
     "vue-resource": "^1.0.3",
