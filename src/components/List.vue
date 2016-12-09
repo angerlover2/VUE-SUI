@@ -26,7 +26,8 @@
 		    </div>
 		    <div class="card-footer">
 		      <a href="#" class="link">赞</a>
-		       <router-link :to="{ name:'content',params:{id:item.news_id}}" class="link" tag="a">更多</router-link>
+		      <!-- <router-link :to="{ name:'content',params:{id:item.news_id}}" class="link">更多</router-link>-->
+		      <router-link :to="{ path:'/content/'+item.news_id}" class="link">更多</router-link>
 		    </div>
 		</div>
 		<div class="more" @click="more">
@@ -54,21 +55,27 @@
 				pages:1
 			}
 		},
+		mounted:function(){
+		  	this.getData();
+		},
 		created:function(){
-			this.$http.jsonp("http://api.dagoogle.cn/news/get-news",{
-				params:{
-					tableNum:1,
-					justList:1
-				}
-			}).then(function(res){
-		 		this.news=res.body.data;    //将得到的数据数组直接赋值
-				
-			},function(msg){
-				console.log(msg);
-			})
+			
+			
 		},
 		methods:{
-			
+			getData:function(){
+
+				this.$http.jsonp("http://api.dagoogle.cn/news/get-news",{
+					params:{
+						tableNum:1,
+						justList:1
+					}
+				}).then(function(res){
+			 		this.news=res.body.data;    //将得到的数据数组直接赋值
+				},function(msg){
+					console.log(msg);
+				})
+			},
 			more:function(){
 				console.log(this.pages);
 				this.pages++;

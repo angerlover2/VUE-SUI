@@ -9,8 +9,10 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "less-loader": "^2.2.3",
     "mockjs": "^1.0.1-beta3",
     "vue": "^2.0.1",
+    "vue-loadmore": "^2.0.0",
     "vue-resource": "^1.0.3",
     "vue-router": "^2.0.1",
     "vue-swipe": "^2.0.0",

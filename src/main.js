@@ -9,7 +9,8 @@ import Home from './components/Home'
 import Slider from './components/Slider'
 import Form from './components/Form'
 import Content from './components/Content'
-
+import Setting from './components/Setting'
+import Loadmore from 'vue-loadmore'
 
 
 //自定义时间过滤器
@@ -33,6 +34,9 @@ Vue.config.debug=true;
 Vue.use(VueRouter);
 Vue.use(VueResource);
 Vue.use(VueValidator);
+
+
+
 
 var router = new VueRouter({
 	mode:"history",
@@ -59,6 +63,9 @@ var router = new VueRouter({
 		path:"/content/:id",
 		name:"content",
 		component:Content
+	},{
+		path:'/setting',
+		component:Setting
 	}
 	
 	]

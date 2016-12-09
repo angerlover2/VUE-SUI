@@ -8,9 +8,8 @@
 		<div class="content-block content-block1">
 			<div class="tabs">
 				<div id="tab1" class="tab active">
-					
+					 <loadmore :top-method="loadTop" :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore">
 						<div class="card facebook-card" v-for="item in mes">
-							
 							<div class="card-header no-border">
 								<div class="facebook-avatar">
 									<img :src="item.userHeadImg" alt=""width="34" height="34"/>
@@ -27,9 +26,7 @@
 								<a href="#" class="link">分享</a>
 							</div>
 						</div>
-						
-						
-						
+					 </loadmore>
 					
 				</div>
 				<div id="tab2" class="tab">
@@ -50,28 +47,9 @@
 </template>
 
 <script type="text/javascript">
-//	var Mock=require('mockjs');
-//	var data=Mock.mock({
-//		'list|1-10':[{
-//			'id|1':false,
-//			'attr|1-2':'three',
-//			'time|+1':['2016-11-03','2016-11-04','2016-11-05','2016-11-06'],
-//			'title|1':[
-//				'这是测试标题1',
-//				'这是测试标题2',
-//				'是测试标题3',
-//				'这是测试标题4',
-//				'测试标题5',
-//			],
-//			'content|count':{
-//				id:'第三方是方式方法范德萨发放松放松，付首付，范德萨发电费是冯绍峰是，所发生的，的冯绍峰是！',
-//				isad:'说分手胜多负撒范德放大，是发松岛枫，事发地点时，都是',
-//				isd:'发佛山市房发身无分文而温柔',
-//				t:'付首付上分为非沙发沙发方式'
-//			}
-//		}]
-//	})
-//  console.log(JSON.stringify(data,null,4));
+
+import Vue from 'vue'
+import Loadmore from 'vue-loadmore'
 
 
  //百度api  
@@ -86,36 +64,58 @@
 						headImage:"",
 						likeCount:''
 					}
-				]
+				],
+				page:3,
+				success:true
 			}
 		},
+		components:{
+			Loadmore
+		},
 		created:function(){
-			//console.log(123);
-			this.$http.get("https://apis.baidu.com/qunartravel/travellist/travellist",{
-				params:{
-					query:'123',
-					page:1,
+			this.getList();
+		},
+		 ready() {
+        	
+      	},
+      	methods:{
+      		getList:function(page){
+				this.$http.get("https://apis.baidu.com/qunartravel/travellist/travellist",{
+					params:{
+						page:this.page,
+					},
 					headers:{
-					'apikey':'06ad8ab76e20c1fb0a04cfd9ce4f5e0c'
-				}
-				},
-				headers:{
-					'apikey':'06ad8ab76e20c1fb0a04cfd9ce4f5e0c'
-				}	
-			},{
-				headers:{
-					'apikey':'06ad8ab76e20c1fb0a04cfd9ce4f5e0c'
-				}
+						'apikey':'06ad8ab76e20c1fb0a04cfd9ce4f5e0c'
+					}	
+				}).then(function(res){
+					//this.mes=this.mes.concat(res.body.data.books);  数据追加
+					this.mes=res.body.data.books;
+					console.log(this.mes);
+				},function(err){
+					console.log(err);
+					this.success=false;
+				})
+			},
+      		loadTop(id){
+      			console.log(this.page);
+      			//默认是第三页，下拉刷新的时候获取第一页
+      			this.page=1;
+      			this.getList(this.page);
+      			this.$refs.loadmore.onTopLoaded(id);
+      			console.log("id="+id);
+      		},
+      		loadMore(){
+      			console.log("loadMore");
+      			
+      		},
+      		loadBottom(id) {
+      			console.log("下方在执行id="+id)
+      			//this.page++;
+			  	//this.getList(this.page);
+			//  this.$refs.loadmore.onBottomLoaded(id);
 			}
-				).then(function(res){
-				this.mes=res.body.data.books;
-				console.log(this.mes);
-			},function(err){
-				console.log(err);
-			})
 
-
-		}
+      	}
 	}
 	
 </script>
