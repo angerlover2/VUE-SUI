@@ -101,7 +101,7 @@
 </script>
 
 <style type="text/css">
-	.list-block{padding: 0;}
+	.list-block{padding: 0;margin-top: 0;}
 	.list-block li{background: #fff;}
 	.list-block li .row{width: 100%;margin: 0;}
 	.login,.register{text-align: center;}

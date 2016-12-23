@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div id="aaa">
 		<div class="buttons-tab" id="tab">
 			<a href="#tab1"class="tab-link button " @click="clickTab(1)">做1</a>
 			<a href="#tab2"class="tab-link button active" @click="clickTab(2)">做2</a>

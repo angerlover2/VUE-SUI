@@ -13,15 +13,23 @@
 	
 	export default{
 		name:'head',
-		props:['atittle'],
 		data(){
 			return {
-				tittle:this.tittle
+				//头部title
+				tittle:""
 			}
 		},
 		methods:{
 			backHistory:function(){
 				this.$router.go(-1);
+			}
+		},
+		created:function(){
+			console.log(this.$root.newsTitle);
+		},
+		watch:{         // watch $route 监测路由变化,改变头部title，刷新无效
+			'$route' (to, from) {
+				this.tittle=to.meta.title;
 			}
 		}
 		
