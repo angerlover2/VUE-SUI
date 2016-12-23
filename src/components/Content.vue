@@ -1,6 +1,7 @@
 <template>
-  <div class="news-contnet" id="abc">
-    	
+  <div>
+  		<h4>{{title}}</h4>
+    	<div class="news-contnet" id="abc"></div>
     	
   </div>
 </template>
@@ -18,7 +19,8 @@ export default {
   	return{
   		msg: 'Welcome to Your Vue.js App',
     	id:'',
-    	cont:''
+    	cont:'',
+    	title:''
   	}
   },
   created:function(){
@@ -29,6 +31,7 @@ export default {
   		}
   	}).then(function(res){
   		document.getElementById('abc').innerHTML=res.body.data.content;
+  		this.title=res.body.data.title;
   		//console.log(res.body.data);
   	},function(msg){
   		console.log(msg);

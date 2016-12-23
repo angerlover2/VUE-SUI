@@ -16,13 +16,18 @@
 		props:['atittle'],
 		data(){
 			return {
-				tittle:this.tittle
+				tittle:''
 			}
 		},
 		methods:{
 			backHistory:function(){
 				this.$router.go(-1);
 			}
+		},
+		watch:{               //watch $route监听路由变化，改变头部title
+			'$route' (to, from) {
+			    this.tittle =to.meta.title;
+			  }
 		}
 		
 	}
