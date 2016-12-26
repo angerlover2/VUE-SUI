@@ -16,7 +16,7 @@ npm run build
 
 ### [demo](https://angerlover2.github.io/VUE-SUI/demo/)<br/>
 
-* 首页使用的是http://api.dagoogle.cn/news/get-news 免费的api请求接口，所以在github上无法显示数据，如果你有更好的免费https请求接口，请在issues中联系我，谢谢~
+* 首页使用的是http://api.dagoogle.cn/news/get-news 免费的api请求接口，有时数据会无法显示。
 
 * 轮播是手写的一个简单的定时器，显示隐藏效果，不支持滑动
 * 右上角搜索使用的是360的api接口，支持pc端键盘上下选择
